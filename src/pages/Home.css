@@ -1,0 +1,800 @@
+.home-container {
+  min-height: 100vh;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: radial-gradient(circle at center, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  /* Adding NASA mission background image with better blending */
+  background-image: 
+    radial-gradient(circle at center, var(--bg-primary) 0%, var(--bg-secondary) 100%),
+    url('https://images-assets.nasa.gov/image/PIA21713/PIA21713~large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  overflow: hidden;
+}
+
+.stars-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* Replace the rocket animation CSS with satellite animation */
+.rotating-planet {
+  position: absolute;
+  top: 15%;
+  right: -150px; /* Start from the right side, outside the viewport */
+  width: 150px;
+  height: 70px;
+  animation: satelliteOrbit 25s linear infinite;
+  z-index: 5;
+}
+
+@keyframes satelliteOrbit {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-500px) translateY(30px) rotate(90deg);
+  }
+  50% {
+    transform: translateX(-1000px) translateY(0) rotate(180deg);
+  }
+  75% {
+    transform: translateX(-1500px) translateY(-30px) rotate(270deg);
+  }
+  100% {
+    transform: translateX(-2000px) translateY(0) rotate(360deg);
+  }
+}
+
+/* Satellite SVG styling */
+.satellite-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.8));
+}
+
+/* Satellite panel animation */
+.satellite-panel {
+  animation: panelGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes panelGlow {
+  0% {
+    opacity: 0.7;
+    filter: brightness(1);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1.5);
+  }
+}
+
+/* Satellite antenna animation */
+.satellite-antenna {
+  animation: antennaPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes antennaPulse {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1.1);
+  }
+}
+
+/* Remove rocket-specific styles */
+.rocket-svg {
+  /* Styles removed */
+}
+
+.rocket-flame {
+  /* Styles removed */
+}
+
+@keyframes flamePulse {
+  /* Keyframes removed */
+}
+
+@keyframes rocketFly {
+  /* Keyframes removed */
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 10;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--text-secondary), var(--accent-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(106, 106, 169, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.cta-button {
+  background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(106, 106, 169, 0.5);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+}
+
+/* Common Section Styles */
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 60px 0 40px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Timeline Teaser */
+.timeline-teaser {
+  padding: 40px 20px;
+  background: rgba(10, 10, 42, 0.92);
+  /* Adding NASA mission background image with better blending */
+  background-image: 
+    linear-gradient(rgba(10, 10, 42, 0.92), rgba(10, 10, 42, 0.92)),
+    url('https://images-assets.nasa.gov/image/PIA16239/PIA16239~large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-attachment: fixed;
+}
+
+.timeline-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+
+.timeline-year {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.timeline-card {
+  background: rgba(30, 30, 70, 0.6);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(106, 106, 169, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 120px;
+  transition: all 0.3s ease;
+}
+
+.timeline-card h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.timeline-item.completed .timeline-card {
+  border-color: rgba(46, 204, 113, 0.5);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
+}
+
+.timeline-item.active .timeline-card {
+  border-color: rgba(52, 152, 219, 0.5);
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+}
+
+.timeline-item.planned .timeline-card {
+  border-color: rgba(155, 89, 182, 0.5);
+  box-shadow: 0 0 15px rgba(155, 89, 182, 0.3);
+}
+
+/* Categories Section */
+.categories-section {
+  padding: 40px 20px;
+  background: rgba(5, 5, 25, 0.94);
+  /* Adding NASA mission background image with better blending */
+  background-image: 
+    linear-gradient(rgba(5, 5, 25, 0.94), rgba(5, 5, 25, 0.94)),
+    url('https://images-assets.nasa.gov/image/PIA23637/PIA23637~large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-attachment: fixed;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background: rgba(30, 30, 70, 0.6);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(106, 106, 169, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(106, 106, 169, 0.3);
+}
+
+.category-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.category-card p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Mission Preview */
+.mission-preview {
+  padding: 40px 20px;
+  background: rgba(10, 10, 42, 0.92);
+  /* Adding NASA mission background image with better blending */
+  background-image: 
+    linear-gradient(rgba(10, 10, 42, 0.92), rgba(10, 10, 42, 0.92)),
+    url('https://images-assets.nasa.gov/image/PIA00423/PIA00423~large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-attachment: fixed;
+}
+
+.mission-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.mission-preview-item {
+  display: flex;
+  background: rgba(30, 30, 70, 0.6);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(106, 106, 169, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 550px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.mission-image-placeholder {
+  width: 40%;
+  background: rgba(20, 20, 50, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--accent-primary);
+}
+
+.mission-details {
+  width: 60%;
+  padding: 25px;
+}
+
+.mission-details h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.mission-details p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.mission-link {
+  display: inline-block;
+  background: rgba(106, 106, 169, 0.3);
+  color: var(--text-secondary);
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.mission-link:hover {
+  background: rgba(106, 106, 169, 0.5);
+}
+
+/* Search Section */
+.search-section {
+  padding: 40px 20px;
+  background: rgba(5, 5, 25, 0.94);
+  /* Adding NASA mission background image with better blending */
+  background-image: 
+    linear-gradient(rgba(5, 5, 25, 0.94), rgba(5, 5, 25, 0.94)),
+    url('https://images-assets.nasa.gov/image/PIA21713/PIA21713~large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-attachment: fixed;
+}
+
+.search-container {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-primary);
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px 20px 15px 50px;
+  border-radius: 50px;
+  border: 1px solid rgba(106, 106, 169, 0.3);
+  background: rgba(30, 30, 70, 0.6);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px rgba(106, 106, 169, 0.5);
+}
+
+.filter-options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(106, 106, 169, 0.3);
+  background: rgba(30, 30, 70, 0.6);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px rgba(106, 106, 169, 0.5);
+}
+
+.search-results {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.result-card {
+  display: flex;
+  background: rgba(30, 30, 70, 0.6);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(106, 106, 169, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 350px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.result-icon {
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.result-content h4 {
+  font-size: 1.2rem;
+  margin: 0 0 10px 0;
+  color: var(--text-primary);
+}
+
+.result-content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Insights Section */
+.insights-section {
+  padding: 40px 20px;
+  background: rgba(10, 10, 42, 0.92);
+  /* Adding NASA mission background image with better blending */
+  background-image: 
+    linear-gradient(rgba(10, 10, 42, 0.92), rgba(10, 10, 42, 0.92)),
+    url('https://images-assets.nasa.gov/image/PIA16030/PIA16030~large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-attachment: fixed;
+}
+
+.insights-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.insight-card {
+  background: rgba(30, 30, 70, 0.6);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(106, 106, 169, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.insight-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(106, 106, 169, 0.3);
+}
+
+.insight-category {
+  display: inline-block;
+  padding: 5px 15px;
+  background: rgba(106, 106, 169, 0.3);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.insight-fact {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.share-button {
+  background: rgba(106, 106, 169, 0.3);
+  color: var(--text-secondary);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.share-button:hover {
+  background: rgba(106, 106, 169, 0.5);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  /* Adding NASA mission background image with better blending */
+  background-image: 
+    linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%),
+    url('https://images-assets.nasa.gov/image/PIA12235/PIA12235~large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-attachment: fixed;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(106, 106, 169, 0.1) 0%, transparent 70%);
+  animation: galaxy-rotate 30s linear infinite;
+}
+
+@keyframes galaxy-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cta-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-section p {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-secondary-button {
+  display: inline-block;
+  background: rgba(106, 106, 169, 0.3);
+  color: var(--text-primary);
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(106, 106, 169, 0.5);
+}
+
+.cta-secondary-button:hover {
+  background: rgba(106, 106, 169, 0.5);
+  transform: translateY(-3px);
+}
+
+/* Interactive 3D Planet Section */
+.planet-section {
+  padding: 60px 20px;
+  background: rgba(5, 5, 25, 0.96);
+  text-align: center;
+  /* Adding NASA mission background image with better blending */
+  background-image: 
+    linear-gradient(rgba(5, 5, 25, 0.96), rgba(5, 5, 25, 0.96)),
+    url('https://images-assets.nasa.gov/image/PIA00117/PIA00117~large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-attachment: fixed;
+}
+
+.planet-globe-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.planet-info {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(30, 30, 70, 0.6);
+  border-radius: 15px;
+  border: 1px solid rgba(106, 106, 169, 0.3);
+  display: inline-block;
+  animation: fadeIn 0.5s ease-in;
+  color: var(--text-primary);
+}
+
+.planet-info h3 {
+  color: var(--accent-primary);
+  margin: 0 0 10px 0;
+}
+
+.planet-info p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .mission-preview-item {
+    flex-direction: column;
+  }
+  
+  .mission-image-placeholder,
+  .mission-details {
+    width: 100%;
+  }
+  
+  .filter-options {
+    flex-direction: column;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
+  .cta-section p {
+    font-size: 1.2rem;
+  }
+  
+  .planet-globe-container {
+    height: 300px;
+  }
+  
+  .rotating-planet {
+    width: 200px;
+    height: 200px;
+    top: 15%;
+    right: 5%;
+  }
+  
+  .hero-section,
+  .timeline-teaser,
+  .categories-section,
+  .mission-preview,
+  .search-section,
+  .insights-section,
+  .cta-section,
+  .planet-section {
+    background-attachment: scroll; /* Change to scroll on mobile for better performance */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .insights-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .search-results {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .result-card {
+    max-width: 100%;
+  }
+}
+
+/* Add this at the end of the file to optimize image loading */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section,
+  .timeline-teaser,
+  .categories-section,
+  .mission-preview,
+  .search-section,
+  .insights-section,
+  .cta-section,
+  .planet-section {
+    background-attachment: scroll;
+  }
+}
+
+/* Optimize for low-bandwidth connections */
+@media (max-width: 768px) {
+  .hero-section,
+  .timeline-teaser,
+  .categories-section,
+  .mission-preview,
+  .search-section,
+  .insights-section,
+  .cta-section,
+  .planet-section {
+    background-attachment: scroll;
+  }
+}

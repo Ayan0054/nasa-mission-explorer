@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Dark theme colors (default) */
+  --bg-primary: #0a0a2a;
+  --bg-secondary: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0d0;
+  --accent-primary: #6a6aa9;
+  --accent-primary-opacity: rgba(106, 106, 169, 0.8);
+  --accent-secondary: #4a4a8c;
+  --nav-bg: rgba(10, 10, 42, 0.95);
+  --nav-active-bg: rgba(106, 106, 169, 0.1);
+  --border-color: rgba(106, 106, 169, 0.3);
+}
+
+.light-theme {
+  --bg-primary: #f0f0f0;
+  --bg-secondary: #e0e0e0;
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --accent-primary: #4a4a8c;
+  --accent-primary-opacity: rgba(74, 74, 140, 0.8);
+  --accent-secondary: #6a6aa9;
+  --nav-bg: rgba(240, 240, 240, 0.95);
+  --nav-active-bg: rgba(74, 74, 140, 0.1);
+  --border-color: rgba(74, 74, 140, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-secondary) 0%, var(--accent-primary) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #5a5a9c 0%, #7a7ab9 100%);
+}
+
+/* Custom animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes sparkle {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100px); }
+}

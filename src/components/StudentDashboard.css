@@ -1,0 +1,16 @@
+.student-dashboard {
+  padding: 20px;
+}
+
+.progress-bar-animated {
+  animation: progressAnimation 1s ease-in-out;
+}
+
+@keyframes progressAnimation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width);
+  }
+}
